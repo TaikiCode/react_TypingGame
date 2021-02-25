@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Button = () => {
+const Button = ({handleStart, disabled}) => {
     return (
-        <button>
-            Start
+        <button onClick={handleStart}>
+            {disabled ? "Start" : "Reset"}
         </button>
     )
 }
 
 export default Button
+

@@ -25,7 +25,7 @@
 button {
   border: none;
   outline: none;
-  background: #f73859;
+  background-color: crimson;
   color: #fff;
   font-size: 24px;
   font-weight: 600;
@@ -35,10 +35,14 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: #f73859;
+}
+
 .App {
   width: 100%;
   min-height: 100vh;
-  background: #222222;
+  background: #333333;
   display: flex;
 }
 
@@ -46,13 +50,12 @@ button {
 
 .box {
   width: 100%;
-  height: 500px;
+  height: 550px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background: #222222;
-  border: 2px solid #111111;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -60,7 +63,7 @@ button {
   width: 100%;
   background: #111111;
   color: #fff;
-  padding: 20px;
+  padding: 25px;
   text-align: center;
 }
 
@@ -86,14 +89,14 @@ button {
 
 .box .inputarea {
   width: 100%;
-  height: 55px;
+  height: 60px;
   display: flex;
 }
 
 .box .inputarea input {
   width: 75%;
   height: 100%;
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding-left: 10px;
   border: none;
   outline: none;
@@ -101,14 +104,29 @@ button {
   color: #fff;
 }
 
+
+@keyframes scaleNumber {
+  0% {
+    transform: scale(1.25);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.25);
+  }
+}
+
+
 /* Result Styles */
 
 .results {
   width: 100%;
   max-width: 50px;
-  background: #283149;
+  background: #333333;
   display: flex;
   flex-direction: column;
+  box-shadow: -5px 0px 3px rgba(0, 0, 0, 0.4);
 }
 
 .resultsOpen {
@@ -121,7 +139,7 @@ button {
 
 .results .title {
   padding: 20px;
-  background: #111727;
+  background: #444444;
   color: #fff;
 }
 
@@ -161,7 +179,7 @@ button {
   width: 100%;
   padding: 14px;
   /* background: #f73859; */
-  
+
   color: #fff;
   border-radius: 4px;
   word-wrap: break-word;
@@ -179,4 +197,25 @@ button {
 .results .resultsContainer .correctResults .row:not(:last-of-type),
 .results .resultsContainer .wrongResults .row:not(:last-of-type) {
   margin-bottom: 10px;
+}
+
+@media (max-width: 580px) {
+  button {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1210px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 14px;
+  }
+  .App .container {
+    max-width: 700px;
+  }
+  .results {
+    max-width: 700px;
+    margin: 40px 0;
+  }
 }

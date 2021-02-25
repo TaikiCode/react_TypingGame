@@ -1,23 +1,32 @@
 import React from "react";
 
-const Results = ({ open }) => {
+const Results = (props) => {
+  const { open, correctResults, wrongResults, countCorrect } = props;
   const openResults = () => {
     if (open) {
       return (
         <>
           <div className="title">
-            <p>正解回数： 2</p>
+            <p>正答数： {countCorrect}</p>
           </div>
           <div className="resultsContainer">
             <div className="correctResults">
-              <div className="row">
-                <p>react</p>
-              </div>
+              {correctResults.map((correctWord, index) => {
+                return (
+                  <div key={index} className="row">
+                    <p>{correctWord}</p>
+                  </div>
+                );
+              })}
             </div>
             <div className="wrongResults">
-              <div className="row">
-                <p>html</p>
-              </div>
+              {wrongResults.map((wrongWord, index) => {
+                return (
+                  <div key={index} className="row">
+                    <p>{wrongWord}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </>
